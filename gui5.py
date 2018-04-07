@@ -20,7 +20,7 @@ label = tk.Label(root, fg="green")
 label.pack()
 counter_label(label)
 	
-button = tk.Button(root, text="Stop & close", width=30, fg="red", command=root.destroy)
+button = tk.Button(root, text="Stop & close", width=30, fg="red", bg = "black", command=root.destroy)
 button.pack()
 
 label_2 = tk.Label(root, 
@@ -178,10 +178,26 @@ button_6.grid(row = 1, column = 2, sticky = E)
 button_7 = Button(frame_3, text = "ENVIAR", fg = "dark green", bg = "light green", command = frame_3.quit)
 button_7.grid(row = 0, column = 2, sticky = E)
 
-class CheckBar_1(Frame):
-	def __init__(self, ):
-		super(CheckBar_1,Frame).__init__()
-		self.arg = arg
+#### Definicion y uso de frame_4
+frame_4 = tk.Frame(root)
+frame_4.pack()
+
+scale_1 = Scale(frame_4, from_= 0, to = 50)
+scale_1.set(19)
+scale_1.pack()
+
+scale_2 = Scale(frame_4, from_= 0, to = 100, orient = HORIZONTAL)
+scale_2.set(67)
+scale_2.pack()
+
+scale_3 = Scale(frame_4, from_ = 0, to = 200, tickinterval = 8, orient = HORIZONTAL, length = 600)
+scale_3.pack()
+
+def getValues_1():
+	print(scale_1.get(), scale_2.get(), scale_3.get())
+
+button_8 = Button(frame_4, text="Obtener valores", command = getValues_1)
+button_8.pack()
 
 
 root.mainloop()
